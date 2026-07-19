@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Verbinden — SOS Notruf für Senioren</title>
+<style>
+  :root { color-scheme: light dark; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; max-width: 720px; margin: 0 auto; padding: 24px; line-height: 1.6; color: #1a1a1a; background: #fafafa; text-align: center; }
+  @media (prefers-color-scheme: dark) { body { color: #e5e5e5; background: #0f0f11; } a { color: #38bdf8; } }
+  h1 { font-size: 1.6em; margin: 24px 0 8px; }
+  p { font-size: 1.1em; }
+  .code { font-size: 3em; font-weight: 900; letter-spacing: 0.15em; margin: 20px 0; }
+  .btn { display: block; background: #C0142B; color: #fff !important; text-decoration: none; font-size: 1.4em; font-weight: 700; padding: 22px 28px; border-radius: 16px; margin: 28px auto; max-width: 420px; }
+  .btn.secondary { background: #0B4F9C; font-size: 1.15em; padding: 16px 24px; }
+  .hint { color: #666; font-size: 0.95em; }
+  @media (prefers-color-scheme: dark) { .hint { color: #999; } }
+  footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid #ddd; font-size: 0.85em; color: #888; }
+  @media (prefers-color-scheme: dark) { footer { border-top-color: #333; } }
+</style>
+</head>
+<body>
+
+<h1>Mit der Familie verbinden</h1>
+<p>Ihre Familie hat alles vorbereitet. Nur noch zwei Schritte:</p>
+
+<p class="hint">1) Falls noch nicht geschehen: App laden.</p>
+<a class="btn secondary" href="https://apps.apple.com/ch/app/id6785085333">App gratis aus dem App&nbsp;Store laden</a>
+
+<p class="hint">2) Danach hier tippen – der Code wird automatisch eingetragen:</p>
+<a class="btn" id="open" href="#">App öffnen und verbinden</a>
+
+<p class="hint">Falls das nicht klappt: Öffnen Sie die App, tippen Sie unten auf
+„Angehörigen-Schutz" und geben Sie diesen Code von Hand ein:</p>
+<div class="code" id="code">––––––</div>
+
+<footer>SOS Notruf für Senioren · <a href="privacy.html">Datenschutz</a> · <a href="terms.html">Nutzungsbedingungen</a></footer>
+
+<script>
+  // Code aus dem Link übernehmen (nur Ziffern, max. 6 – kein Injection-Spielraum).
+  var code = (new URLSearchParams(location.search).get('code') || '')
+    .replace(/\D/g, '').slice(0, 6);
+  if (code) {
+    document.getElementById('code').textContent = code;
+    document.getElementById('open').setAttribute('href', 'easysos://pair?code=' + code);
+  } else {
+    document.getElementById('open').style.display = 'none';
+  }
+</script>
+</body>
+</html>
