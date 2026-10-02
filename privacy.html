@@ -27,7 +27,7 @@
 <body>
 
 <h1>Datenschutzerklärung</h1>
-<p class="meta">Stand: 28. Juni 2026 · App: SOS Notruf für Senioren (iOS)</p>
+<p class="meta">Stand: 2. Oktober 2026 · App: SOS Notruf für Senioren (iOS)</p>
 
 <p>
   Diese App hilft Seniorinnen und Senioren, im Notfall schnell Hilfe zu rufen, und
@@ -65,10 +65,12 @@
   <tbody>
     <tr><td>Name / Anzeigename, Sprache</td><td>Anzeige in der App, Ansprache</td></tr>
     <tr><td>E-Mail-Adresse (Angehörige)</td><td>Anmeldung, Alarm-Benachrichtigung</td></tr>
+    <tr><td>Telefonnummer (Angehörige, freiwillig)</td><td>Für SMS-Alarme, sobald dieser Kanal aktiv ist (siehe Ziffer 6)</td></tr>
     <tr><td>Geräte-Kennung &amp; Push-Token</td><td>Erinnerungen und Alarme zustellen</td></tr>
-    <tr><td>Akkustand, Online-Status (Senioren-Gerät)</td><td>Anzeige im Familien-Cockpit</td></tr>
+    <tr><td>Akkustand, Online-Status, Benachrichtigungs-Status (Senioren-Gerät)</td><td>Anzeige im Familien-Cockpit</td></tr>
     <tr><td>Check-in-Bestätigungen, Zeitpläne</td><td>„Alles gut?"-Funktion, Eskalation</td></tr>
     <tr><td><strong>Standort – nur im Alarmfall, einmalig</strong></td><td>Angehörige finden die Person schneller</td></tr>
+    <tr><td>Nachrichten und Zeichen („Alles gut", „Bitte anrufen", liebe Nachrichten)</td><td>Austausch zwischen betreuter Person und Familie im Cockpit</td></tr>
     <tr><td>Notfallkontakte (Name, Beziehung)</td><td>Wer im Notfall alarmiert wird</td></tr>
     <tr><td>Notfallpass (optional)</td><td>Nur lokal auf dem Gerät gespeichert</td></tr>
   </tbody>
@@ -90,15 +92,19 @@
 </table>
 <p>
   Ihre Einwilligung geben Sie bei der Einrichtung und können sie jederzeit
-  widerrufen (E-Mail an uns). Wir nutzen Ihre Daten <strong>nicht für Werbung</strong>
-  und verkaufen sie nicht.
+  widerrufen. Die Standort-Freigabe erteilen Sie über die Abfrage Ihres Telefons;
+  Sie nehmen sie jederzeit in den iPhone-Einstellungen („Datenschutz &amp; Sicherheit"
+  → „Ortungsdienste") zurück. Alle übrigen Einwilligungen widerrufen Sie per
+  E-Mail an uns oder indem Sie Ihr Konto in der App löschen. Wir nutzen Ihre Daten
+  <strong>nicht für Werbung</strong> und verkaufen sie nicht.
 </p>
 
 <h2>6. Empfänger / Auftragsverarbeiter (Art. 28 DSGVO)</h2>
 <ul>
   <li><strong>Google Firebase</strong> – Konten, Datenbank, Push. Datenbank und Server stehen in der <strong>Schweiz (Region Zürich)</strong>; einzelne Dienste (Login, Push) können über Server in den USA laufen.</li>
   <li><strong>Mailjet</strong> (Sinch, Frankreich/EU) – Alarm-E-Mails an Angehörige ohne App.</li>
-  <li><strong>RevenueCat</strong> (USA) – Abo-Verwaltung. Die Zahlung wickelt <strong>Apple</strong> ab; wir sehen Ihre Zahlungsdaten nicht.</li>
+  <li><strong>Twilio</strong> (USA) – SMS-Alarme. Dieser Kanal ist <strong>derzeit nicht aktiv</strong>. Wird er aktiviert, erhält der Dienst nur die Telefonnummer der Angehörigen und den Alarmtext (mit Standort-Link). Die Telefonnummer wird bereits jetzt, freiwillig, gespeichert, damit sie bei der Aktivierung vorliegt.</li>
+  <li><strong>RevenueCat</strong> (USA) – Abo-Verwaltung. Die Zahlung wickelt <strong>Apple</strong> ab; wir sehen Ihre Zahlungsdaten nicht. Ausserdem melden wir RevenueCat das Datum, an dem Sie die Bezahlansicht zuletzt geöffnet haben (um zu verstehen, ob sie verständlich ist).</li>
   <li><strong>Healthchecks.io</strong> – technische Server-Überwachung; erhält keine Personendaten.</li>
 </ul>
 <p>
@@ -110,13 +116,16 @@
 <h2>7. Übermittlung in Drittländer</h2>
 <ul>
   <li><strong>Schweiz:</strong> Von der EU/dem EWR als Land mit angemessenem Datenschutz anerkannt. Unsere zentrale Datenbank steht hier.</li>
-  <li><strong>USA</strong> (Google-Teildienste, RevenueCat): abgesichert durch die EU-Standardvertragsklauseln.</li>
+  <li><strong>USA</strong> (Google-Teildienste, RevenueCat, Twilio – sobald aktiv): abgesichert durch die EU-Standardvertragsklauseln.</li>
 </ul>
 
 <h2>8. Wie lange wir Daten aufbewahren</h2>
 <ul>
-  <li>Konto- und Profildaten: solange Sie die App nutzen. Beim Löschen einer Person oder Ihres Kontos werden die zugehörigen Daten vollständig gelöscht.</li>
-  <li>Alarm- und Check-in-Verlauf: <strong>90 Tage</strong>, danach automatische Löschung.</li>
+  <li>Konto- und Profildaten: solange Sie die App nutzen.</li>
+  <li><strong>Konto löschen:</strong> In der App unter „Meine Kontaktdaten" → „Konto löschen". Dabei werden Ihr Profil (Name, E-Mail, Telefonnummer, Push-Token) und Ihr Anmeldekonto <strong>gelöscht</strong>, ebenso Personen, die nur Sie betreuen, samt Verlauf; deren Telefon wird vorher benachrichtigt. Wird eine Person auch von anderen betreut, bleibt deren Kreis ohne Sie bestehen. Zahlen Sie deren Schutz, geht er an eine Person im Kreis mit eigenem Abo und freiem Platz über – sonst endet er. Einzelne Verlaufseinträge mit Ihrem Namen („… kümmert sich") werden mit dem übrigen Verlauf gelöscht (siehe unten). Ein laufendes Abo müssen Sie selbst im App Store kündigen; Kaufdaten führen Apple und RevenueCat nach ihren eigenen Fristen.</li>
+  <li><strong>Abmelden:</strong> Der Push-Token dieses Telefons wird aus Ihrem Konto entfernt und auf dem Telefon verworfen. Fehlt gerade die Internetverbindung, wird er spätestens beim nächsten Versand als ungültig erkannt und gelöscht.</li>
+  <li><strong>Person entfernen:</strong> Entfernen Sie eine Person als <strong>einzige</strong> betreuende Person, werden ihre Daten <strong>vollständig gelöscht</strong> (ihr Telefon wird benachrichtigt). Betreuen weitere Angehörige sie, verlassen Sie nur den Kreis; die Daten der Person bleiben für die anderen bestehen.</li>
+  <li>Erledigte Alarme (inkl. Standort), Check-in-Verlauf, Zeichen und Nachrichten: <strong>90 Tage</strong>, danach automatische Löschung (ein wöchentlicher Löschlauf – es kann daher bis zu eine Woche länger dauern); offene, nicht entwarnte Alarme bleiben bis zur Entwarnung.</li>
   <li>Notfallpass: bleibt nur auf Ihrem Gerät.</li>
 </ul>
 
